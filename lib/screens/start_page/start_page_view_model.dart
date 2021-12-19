@@ -5,15 +5,23 @@ import 'package:furniture_shop/core/constants/color.dart';
 import './start_page.dart';
 
 abstract class StartPageViewModel extends State<StartPage> {
-  textFunk(text, color, size, fontfamily, fontWeight) {
-    return Text(
-      text,
-      style: TextStyle(
-          fontFamily: fontfamily,
-          fontSize: size,
-          color: color,
-          fontWeight: fontWeight),
+  Padding textFunc(
+      bottom, top, right, left, text, color, size, fontfamily, fontWeight) {
+    return Padding(
+      padding: EdgeInsets.only(
+        left: getUniqueWidth(left),
+        top: getUniqueHeight(top),
+        right: getUniqueWidth(right),
+        bottom: getUniqueHeight(bottom),
+      ),
+      child: Text(
+        text,
+        style: TextStyle(
+            fontFamily: fontfamily,
+            fontSize: size,
+            color: color,
+            fontWeight: fontWeight),
+      ),
     );
   }
-  
 }
